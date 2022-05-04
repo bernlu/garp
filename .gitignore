@@ -1,0 +1,10 @@
+/target
+/.vscode
+/.vs
+/.cargo
+/out
+/analysis
+*.txt
+*.png
+*.bz2
+*.json
