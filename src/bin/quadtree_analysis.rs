@@ -1,6 +1,6 @@
 use std::time::Instant;
 
-use chext::{
+use garp::{
     graph::BaseGraph,
     load_ch_graph,
     quadtree::{QuadTree, TreeNode},

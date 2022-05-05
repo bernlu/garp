@@ -1,11 +1,11 @@
 use std::fs::File;
 use std::io::{BufWriter, Write};
 
-use chext::graph::NodeId;
-use chext::graph::{BaseNode, CHEdge, CHGraph};
-use chext::hittingset::HittingSet;
-use chext::paths::CHEdgeList;
-use chext::{load_ch_graph, load_hs_graph, load_paths};
+use garp::graph::NodeId;
+use garp::graph::{BaseNode, CHEdge, CHGraph};
+use garp::hittingset::HittingSet;
+use garp::paths::CHEdgeList;
+use garp::{load_ch_graph, load_hs_graph, load_paths};
 use clap::{App, Arg};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::time::Instant;

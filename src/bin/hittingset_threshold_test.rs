@@ -1,5 +1,5 @@
-use chext::hittingset::HittingSet;
-use chext::{load_hs_graph, load_paths};
+use garp::hittingset::HittingSet;
+use garp::{load_hs_graph, load_paths};
 use clap::{App, Arg};
 use rayon::iter::{IntoParallelRefIterator, ParallelIterator};
 use std::time::Instant;

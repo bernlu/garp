@@ -1,6 +1,6 @@
 use std::{iter::repeat, time::Instant};
 
-use chext::{
+use garp::{
     dijkstra::Dijkstra,
     graph::{BaseGraph, BaseNode, CHEdge, CHGraph, NodeId},
     load_ch_graph,

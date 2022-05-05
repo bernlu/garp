@@ -1,6 +1,6 @@
 use std::iter::repeat;
 
-use chext::{
+use garp::{
     dijkstra::Dijkstra,
     graph::{BaseGraph, CHGraph},
     load_ch_graph, load_hittingset, load_paths,

@@ -1,11 +1,11 @@
-use chext::graph::{BaseNode, CHEdge, CHGraph};
+use garp::graph::{BaseNode, CHEdge, CHGraph};
 use clap::{App, Arg};
 use std::io::{stdout, Write};
 
-use chext::dijkstra::Dijkstra;
-use chext::paths::SourceTargetPair;
-use chext::random_pairs::STPGenerator;
-use chext::{load_ch_graph, PathWriter};
+use garp::dijkstra::Dijkstra;
+use garp::paths::SourceTargetPair;
+use garp::random_pairs::STPGenerator;
+use garp::{load_ch_graph, PathWriter};
 use rayon::iter::{ParallelBridge, ParallelIterator};
 
 // struct to store command line args.

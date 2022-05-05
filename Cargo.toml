@@ -1,6 +1,6 @@
 [package]
-name = "chext"
-version = "0.1.0"
+name = "garp"
+version = "1.0.0"
 authors = ["Lukas Berner"]
 edition = "2018"
 

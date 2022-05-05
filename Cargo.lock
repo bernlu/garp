@@ -131,24 +131,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "chext"
-version = "0.1.0"
-dependencies = [
- "bincode",
- "clap",
- "csv",
- "derive_index",
- "derive_more",
- "geojson",
- "rand",
- "rayon",
- "rustc-hash",
- "serde",
- "serde_json",
- "staticmap",
-]
-
-[[package]]
 name = "clap"
 version = "2.34.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -297,6 +279,24 @@ checksum = "5fc25a87fa4fd2094bffb06925852034d90a17f0d1e05197d4956d3555752191"
 dependencies = [
  "matches",
  "percent-encoding",
+]
+
+[[package]]
+name = "garp"
+version = "1.0.0"
+dependencies = [
+ "bincode",
+ "clap",
+ "csv",
+ "derive_index",
+ "derive_more",
+ "geojson",
+ "rand",
+ "rayon",
+ "rustc-hash",
+ "serde",
+ "serde_json",
+ "staticmap",
 ]
 
 [[package]]

@@ -1,6 +1,6 @@
 use std::io::{stdout, Write};
 
-use chext::{
+use garp::{
     dijkstra::Dijkstra,
     graph::{BaseGraph, BaseNode, CHEdge, CHGraph},
     load_ch_graph,
