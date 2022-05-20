@@ -32,14 +32,14 @@ impl<'a, N: HSNode + BaseNode, E: HSEdge + BaseEdge + ChildEdge> HittingSet<'a, 
         Self {
             hist: vec![0; graph.num_nodes()],
             graph: graph.into(),
-            edge_path_map: edge_path_map,
-            paths: paths,
+            edge_path_map,
+            paths,
             adaptive_threshold,
         }
     }
 
     pub fn new(graph: &'a dyn HSGraph<Node = N, Edge = E>, paths: Vec<CHEdgeList>) -> Self {
-        Self::new_with_threshold(graph, paths, 20000)
+        Self::new_with_threshold(graph, paths, 400000)
     }
 
     /// finds all paths that intersect path_id. will ignore paths that are tagged as false in the paths_todo list.

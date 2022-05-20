@@ -21,7 +21,7 @@ struct Args<'a> {
     paths_files: Vec<&'a str>,
 
     /// disables hitting set verification
-    skip_verification: bool,
+    hs_verification: bool,
 
     verbose: bool,
 
@@ -58,9 +58,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .required(true),
     )
     .arg(
-        Arg::with_name("skip verification")
-            .long("skip_verification")
-            .help("skip verification"),
+        Arg::with_name("hs verification")
+            .long("do_verification")
+            .help("run hitting set verification (very slow)"),
     )
     .arg(
         Arg::with_name("verbose")
@@ -85,7 +85,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             .unwrap()
             .into_iter()
             .collect(),
-        skip_verification: matches.is_present("skip verification"),
+        hs_verification: matches.is_present("hs verification"),
         verbose: matches.is_present("verbose"),
         maxiter: matches.value_of("maxiter").and_then(|d| d.parse().ok()),
     };
@@ -138,7 +138,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     // check hittingset
-    if !args.skip_verification {
+    if args.hs_verification {
         if args.verbose {
             println!("checking hitting set");
         }
