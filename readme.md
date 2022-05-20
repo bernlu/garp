@@ -14,7 +14,9 @@ To calculate a list of important nodes:
 
 There will be some cache files stored in the directory of your graph file. These will be used in subsequent runs to skip the preprocessing steps and reduce runtimes. They may be deleted but will be recalculated on the next run.
 
-
+## Output File Formats
+* The `wspd` binary creates a list of weighted paths `(weight, edgeId1, edgeId2, ..., edgeIdN)`, one per line. Edges are named by their id as they are listed in the graph file.
+* The `hittingset` binary creates a list of NodeIds, one per line. These Ids are the NodeId given in the graph file.
 
 ## Binaries
 This project contains multiple binaries. To create path sets or find important nodes, you will need the WSPD and hittingset binaries.
