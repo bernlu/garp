@@ -20,6 +20,7 @@ There will be some cache files stored in the directory of your graph file. These
 
 ## Binaries
 This project contains multiple binaries. To create path sets or find important nodes, you will need the WSPD and hittingset binaries.
+If you are looking for details on the implementation, take a look at [project-overview.md](project-overview.md)
 
 ### WSPD
 Generates a WSPD and samples each pair for a weighted shortest path, then stores all of them to file.  
@@ -43,8 +44,6 @@ Drawing options include:
 * Drawing all WSPD pairs of a specific cell
 * Drawing paths between cell pairs
 * Drawing (some) points contained in a cell
-
-Examples can be found in the [generate_visualizations.sh](generate_visualizations.sh) script which generates all images used in the analysis chapter of the thesis.
 
 #### Additional analysis binaries
 These calculate additional data or print detailed progress information for all algorithms. Take a look at the [run_analysis.sh](run_analysis.sh) script for details.
