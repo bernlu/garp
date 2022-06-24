@@ -207,8 +207,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // store hitting set to file
     let file = File::create(args.out_file)?;
     let mut buf = BufWriter::new(file);
+    buf.write("NodeId, weight\n".as_bytes()).unwrap();
     for h in hittingset {
-        buf.write(format!("{}\n", String::from(h)).as_bytes())
+        buf.write(format!("{}, {}\n", String::from(h.0), h.1).as_bytes())
             .unwrap();
     }
 
@@ -218,13 +219,13 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 /// checks the hitting set by expanding each path and checking if one of the nodes is in the hitting set
 /// parallel with rayon
 fn check_hitting_set_par<N: BaseNode, E: CHEdge>(
-    hittingset_vec: &Vec<NodeId>,
+    hittingset_vec: &Vec<(NodeId, u64)>,
     paths: &Vec<CHEdgeList>,
     graph: &dyn CHGraph<Node = N, Edge = E>,
 ) -> bool {
     let mut hittingset = FxHashSet::default();
-    for &node in hittingset_vec {
-        hittingset.insert(node);
+    for (node, _) in hittingset_vec {
+        hittingset.insert(*node);
     }
 
     paths

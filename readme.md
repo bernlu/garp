@@ -16,7 +16,7 @@ There will be some cache files stored in the directory of your graph file. These
 
 ## Output File Formats
 * The `wspd` binary creates a list of weighted paths `(weight, edgeId1, edgeId2, ..., edgeIdN)`, one per line. Edges are named by their id as they are listed in the graph file.
-* The `hittingset` binary creates a list of NodeIds, one per line. These Ids are the NodeId given in the graph file.
+* The `hittingset` binary creates a list of NodeIds and the weight of all paths (sum) that this node has hit, one per line. These Ids are the NodeId given in the graph file.
 
 ## Binaries
 This project contains multiple binaries. To create path sets or find important nodes, you will need the WSPD and hittingset binaries.

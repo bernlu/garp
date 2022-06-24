@@ -157,8 +157,9 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     // store hitting set to file
     let file = File::create(args.out_file)?;
     let mut buf = BufWriter::new(file);
+    buf.write("NodeId, weight\n".as_bytes()).unwrap();
     for h in hittingset {
-        buf.write(format!("{}\n", String::from(h)).as_bytes())
+        buf.write(format!("{}, {}\n", String::from(h.0), h.1).as_bytes())
             .unwrap();
     }
 
@@ -168,7 +169,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 /// checks the hitting set by expanding each path and checking if one of the nodes is in the hitting set
 /// parallel with rayon
 fn check_hitting_set_par<N: BaseNode, E: CHEdge>(
-    hittingset: &Vec<NodeId>,
+    hittingset: &Vec<(NodeId, u64)>,
     paths: &Vec<CHEdgeList>,
     graph: &dyn CHGraph<Node = N, Edge = E>,
 ) -> bool {
@@ -185,7 +186,7 @@ fn check_hitting_set_par<N: BaseNode, E: CHEdge>(
                 node_path.push(graph.edge(e).target());
             }
             // check if a node of the hittingset is on the path
-            for node in hittingset {
+            for (node, _) in hittingset {
                 if node_path.contains(node) {
                     return true;
                 }

@@ -157,7 +157,7 @@ impl<'a, N: HSNode + BaseNode, E: HSEdge + BaseEdge + ChildEdge> HittingSet<'a, 
     }
 
     /// calculates the hitting set.
-    pub fn run(self) -> Vec<NodeId> {
+    pub fn run(self) -> Vec<(NodeId, u64)> {
         self.run_with_stats_maxiter(false, None)
     }
 
@@ -168,7 +168,7 @@ impl<'a, N: HSNode + BaseNode, E: HSEdge + BaseEdge + ChildEdge> HittingSet<'a, 
         mut self,
         print_stats: bool,
         maxiter: Option<usize>,
-    ) -> Vec<NodeId> {
+    ) -> Vec<(NodeId, u64)> {
         // preparation: do one full scan
         self.scan_edges_full(false);
 
@@ -203,8 +203,6 @@ impl<'a, N: HSNode + BaseNode, E: HSEdge + BaseEdge + ChildEdge> HittingSet<'a, 
                 break;
             }
 
-            // add to set
-            hittingset.push(hitter);
 
             let mut removed = Vec::new();
 
@@ -218,6 +216,9 @@ impl<'a, N: HSNode + BaseNode, E: HSEdge + BaseEdge + ChildEdge> HittingSet<'a, 
                 p.clear();
             }
             num_paths -= removed.len();
+
+            // add to set
+            hittingset.push((hitter, removed.iter().map(|r| r.weight).sum::<u64>()));
 
             // if there is an input of size < adaptive_threshold, run an explorative scan. otherwise full scan.
             if removed.len() < self.adaptive_threshold || num_paths < self.adaptive_threshold {
